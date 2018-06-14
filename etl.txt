@@ -1,0 +1,31 @@
+CREATE TABLE `ltsprojectpo` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `project_name` varchar(40) NOT NULL,
+  `model_id` BIGINT NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+insert  into `ltsprojectpo`(`project_name`,`model_id`) values ('测试工程1',24);
+insert  into `ltsprojectpo`(`project_name`,`model_id`) values ('测试工程2',23);
+
+
+CREATE TABLE `tablepo` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+insert  into `tablepo`(`table_name`) values ('测试表1');
+insert  into `tablepo`(`table_name`) values ('测试表2');
+
+
+CREATE TABLE `tablecolumnpo` (  
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `table_id` BIGINT NOT NULL,
+  `column_name` varchar(40) NOT NULL,
+  `column_type` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`),foreign key(table_id) references tablepo(id)  
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+insert  into `tablecolumnpo`(`table_name`) values (1,'测试列1','String');
+insert  into `tablecolumnpo`(`table_name`) values (1,'测试列2','bigint');
